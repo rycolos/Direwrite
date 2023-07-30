@@ -12,6 +12,8 @@ logfile = f"{logdir}/{date.today}.log"
 text = PapirusTextPos()
 #text.Clear()
 text.AddText("Direwrite for APRS", 20, 20, Id="splash", size=20)
+time.sleep(3)
+text.RemoveText("splash")
 
 #every 30s, read csv, update display, don't update if no change
 try:
