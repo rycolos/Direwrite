@@ -16,39 +16,18 @@ try:
         isotime, source, heard, symbol, level, latitude, longitude, comment = row_list
 
         #write to display
-
-        # r1 = row_list[0]
-        # r2 = row_list[1:5]
-        # r3 = row_list[5:7]
-        # r4 = row_list[7]
-
-        # # print(f"""
-        # # {row_list[0]}
-        # # {row_list[1:5]}
-        # # {row_list[5:7]}
-        # # {row_list[7]}
-        # #     """)
-
-        # # print(r1)
-        # # print(' '.join(map(str, r2)))
-        # # print(' '.join(map(str, r3)))
-        # # print(r4)
-
-        print(isotime)
-        print(source, heard, symbol, level)
-        print(latitude, longitude)
-        print(comment)
+        msg = (f"""
+            {isotime})
+            {source}, {heard}, {symbol}, {level}
+            {latitude}, {longitude})
+            {comment}
+            """)
+        print(msg)
         
         rot = 0 
         text = PapirusTextPos()
-        #text.AddText(f"{isotime}\n{source} {heard} {symbol} {level}\n{latitude} {longitude}\n{comment}", 0, 0, Id="row1", size=15)
-        text.AddText(f"""
-            {isotime}
-            {source} {heard} {symbol} {level}
-            {latitude} {longitude}
-            {comment}"""
-        , 0, 0, Id="row1", size=15)
-
+        text.AddText(f"{isotime}\n{source} {heard} {symbol} {level}\n{latitude} {longitude}\n{comment}",
+            0, 0, Id="row1", size=15)
 
         #wait for refresh time
         time.sleep(refresh)
