@@ -3,9 +3,10 @@ import time
 from datetime import date
 from papirus import PapirusTextPos
 
-refresh = 15   #refresh time
+#CONFIG
+refresh = 25   #refresh time
 logdir = '/home/gktnc/direwolf-logs'
-file1 = 'log-test.log'
+
 today = date.today()
 logfile = f"{logdir}/{today}.log"
 
