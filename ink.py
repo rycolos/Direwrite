@@ -26,8 +26,9 @@ try:
         
         rot = 0 
         text = PapirusTextPos()
-        text.AddText(f"{isotime}\n{source} {heard} {symbol} {level}\n{latitude} {longitude}\n{comment}",
-            0, 0, Id="row1", size=15)
+        #text.AddText(f"{isotime}\n{source} {heard} {symbol} {level}\n{latitude} {longitude}\n{comment}",
+       #     0, 0, Id="row1", size=15)
+        text.AddText(msg, 0, 0, Id="row1", size=15)
 
         #wait for refresh time
         time.sleep(refresh)
