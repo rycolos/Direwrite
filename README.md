@@ -8,3 +8,7 @@ Need to kill Direwolf after with `ps -ef | grep direwolf | grep -v grep | awk '{
 https://numpy.org/devdocs/user/troubleshooting-importerror.html to resolve issues installing numpy/pandas on Pi
 
 Papirus API docs - https://github.com/PiSupply/PaPiRus
+
+chmod u+x direwrite.sh
+
+install service file - cp /etc/systemd/system
