@@ -41,8 +41,8 @@ try:
         
         rot = 0 
         text = PapirusTextPos()
-        text.AddText(isotime, 0, 0, Id="row1" )
-        text.AddText(source, 0, 10, Id="row2" )
+        text.AddText(f"{isotime}\n{source}", 0, 0, Id="row1" )
+        text.AddText(source, 0, 20, Id="row2" )
         #screen.partial_update()
 
         #wait for refresh time
