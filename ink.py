@@ -24,7 +24,7 @@ try:
      #read last line of log file, handle newlines in data
         
         try:
-            df = pd.read_csv(file1).tail(1).replace(r'\n',' ', regex=True) 
+            df = pd.read_csv(logfile).tail(1).replace(r'\n',' ', regex=True) 
             last = df[['isotime', 'source', 'heard', 'symbol', 'level', 'latitude', 'longitude', 'comment']]
             row_list = last.values.flatten().tolist()
             isotime, source, heard, symbol, level, latitude, longitude, comment = row_list
