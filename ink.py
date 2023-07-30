@@ -6,7 +6,8 @@ from papirus import PapirusTextPos
 refresh = 15   #refresh time
 logdir = '~/direwolf-logs'
 file1 = 'log-test.log'
-logfile = f"{logdir}/{date.today}.log"
+today = date.today()
+logfile = f"{logdir}/{today}.log"
 
 #initialize Papirus
 text = PapirusTextPos()
