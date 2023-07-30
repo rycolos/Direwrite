@@ -4,12 +4,13 @@ from papirus import Papirus
 from papirus import PapirusTextPos
 
 refresh = 15   #refresh time
+file = 'log-test.log'
 
 #every 30s, read csv, update display, don't update if no change
 try:
     while True:
         #read last line of log file, handle newlines in data
-        df = pd.read_csv('log-test.log').tail(1).replace(r'\n',' ', regex=True) 
+        df = pd.read_csv(file).tail(1).replace(r'\n',' ', regex=True) 
         last = df[['isotime', 'source', 'heard', 'symbol', 'level', 'latitude', 'longitude', 'comment']]
         row_list = last.values.flatten().tolist()
         isotime, source, heard, symbol, level, latitude, longitude, comment = row_list
@@ -39,7 +40,7 @@ try:
         print(comment)
         
         rot = 0 
-        text = PapirusTextPos()
+        text = PapirusText()
         text.write(isotime)
         text.write(comment)
         #screen.partial_update()
