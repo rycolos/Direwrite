@@ -5,7 +5,7 @@ Configured to show UTC timestamp, sending station, heard station, symbol, levels
 
 ## Requirements
 ### Hardware
-Designed for Pi Zero W and Papirus 2" E-ink display. My station uses a Baofeng UV-5R with BTech APRS-K2 cable, feeding the Pi via a Sabrent USB sound card. It's currently configured as an RX-only iGate due to poor performance iSsues with the UV-5R vox and TX.
+Designed for Pi Zero W and Papirus 2" E-ink display. My station uses a Baofeng UV-5R with BTech APRS-K2 cable, feeding the Pi via a Sabrent USB sound card. It's currently configured as an RX-only iGate due to poor performance issues with the UV-5R vox and TX.
 
 ### Software
 All references to `gktnc` should be replaced with your home directory. All scrips and instructions assume this repo is cloned into your home directory. 
