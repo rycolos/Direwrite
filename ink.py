@@ -35,16 +35,14 @@ try:
                 )
             #print(msg)
             text.AddText(msg, 0, 0, Id="decode", size=15)
-            time.sleep(refresh)
     
     #show error if no logs yet
         except:
             text.AddText(f"Waiting {logfile} to populate...", 0, 0, Id="error", size=15)
+      
+      #wait for refresh time  
+        finally:
             time.sleep(refresh)
-
-    #wait for refresh time
-        #finally:
-            
    
 except KeyboardInterrupt:
     text.Clear()
