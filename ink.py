@@ -35,7 +35,7 @@ try:
     
     #show error if no logs yet
         except:
-            text.AddText("Waiting for logs to populate...", 0, 0, Id="error", size=15)
+            text.AddText("Waiting {logfile} populate...", 0, 0, Id="error", size=15)
 
     #wait for refresh time
         finally:
