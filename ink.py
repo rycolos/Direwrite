@@ -43,6 +43,7 @@ try:
       #wait for refresh time  
         finally:
             time.sleep(refresh)
+            text.RemoveText("decode")
    
 except KeyboardInterrupt:
     text.Clear()
