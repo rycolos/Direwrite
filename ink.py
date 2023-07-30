@@ -10,7 +10,8 @@ logfile = f"{logdir}/{date.today}.log"
 
 #initialize Papirus
 text = PapirusTextPos()
-text.Clear()
+#text.Clear()
+text.AddText("Direwrite for APRS", 20, 20, Id="splash", size=20)
 
 #every 30s, read csv, update display, don't update if no change
 try:
@@ -39,9 +40,7 @@ try:
     #wait for refresh time
         finally:
             time.sleep(refresh)
-            text.Clear()
-
-            
-    
+   
 except KeyboardInterrupt:
+    text.Clear()
     pass
