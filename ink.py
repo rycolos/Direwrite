@@ -4,7 +4,7 @@ from datetime import date
 from papirus import PapirusTextPos
 
 refresh = 15   #refresh time
-logdir = '~/direwolf-logs'
+logdir = '/home/gktnc/direwolf-logs'
 file1 = 'log-test.log'
 today = date.today()
 logfile = f"{logdir}/{today}.log"
