@@ -1,5 +1,5 @@
 import pandas as pd
-import time
+import subprocess, time
 from datetime import date
 from papirus import PapirusTextPos
 
@@ -51,4 +51,5 @@ try:
    
 except KeyboardInterrupt:
     text.Clear()
+    subprocess.call('./kill_dw.sh')
     pass
