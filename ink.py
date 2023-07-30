@@ -38,7 +38,8 @@ try:
         print(latitude, longitude)
         print(comment)
         
-        text = PapirusTextPos([rotation = 0])
+        rot = 0 
+        text = PapirusTextPos([rotation = rot])
         text.write(isotime)
         text.write(comment)
         #screen.partial_update()
