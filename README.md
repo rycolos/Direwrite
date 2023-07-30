@@ -4,9 +4,11 @@ E-ink display for Direwolf APRS decoding on Raspberry Pi Zero
 Configured to show UTC timestamp, sending station, heard station, symbol, levels, lat/lon, and any comment available. 
 
 ## Requirements
-All references to `gktnc` should be replaced with your home directory. All scrips and instructions assume this repo is cloned into your home directory. 
+### Hardware
+Designed for Pi Zero W and Papirus 2" E-ink display. My station uses a Baofeng UV-5R with BTech APRS-K2 cable, feeding the Pi via a Sabrent USB sound card. It's currently configured as an RX-only iGate due to poor performance iSsues with the UV-5R vox and TX.
 
-Designed for Pi Zero W and Papirus 2" E-ink display. 
+### Software
+All references to `gktnc` should be replaced with your home directory. All scrips and instructions assume this repo is cloned into your home directory. 
 
 * Direwolf TNC set up for APRS - See https://k5eok.org/2021/01/19/aprs-digipeater-igate-with-direwolf-entry-level/ for a good guide. You must configure daily logging with `LOGDIR /home/gktnc/direwolf-logs` (where `gktnc` is replaced with your home directory) in your `direwolf.conf` file.
 * Papirus with Python 3 API - See https://github.com/PiSupply/PaPiRus
