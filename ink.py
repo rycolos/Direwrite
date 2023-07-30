@@ -44,7 +44,7 @@ try:
         finally:
             time.sleep(refresh)
             df2 = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True)
-            if df1 == df2:
+            if df1.equals(df2):
                 continue
             else:
                 text.RemoveText("decode")
