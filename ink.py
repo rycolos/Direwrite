@@ -39,7 +39,7 @@ try:
         print(comment)
         
         rot = 0 
-        text = PapirusTextPos([rotation = rot])
+        text = PapirusTextPos()
         text.write(isotime)
         text.write(comment)
         #screen.partial_update()
