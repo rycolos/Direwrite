@@ -40,9 +40,9 @@ try:
         print(comment)
         
         rot = 0 
-        text = PapirusText()
-        text.write(isotime)
-        text.write(comment)
+        text = PapirusTextPos()
+        text.AddText(isotime, 0, 0, Id="row1" )
+        text.AddText(source, 0, 10, Id="row2" )
         #screen.partial_update()
 
         #wait for refresh time
