@@ -51,5 +51,5 @@ try:
    
 except KeyboardInterrupt:
     text.Clear()
-    subprocess.call('./kill_dw.sh')
+    subprocess.call(['sh', './kill_dw.sh'])
     pass
