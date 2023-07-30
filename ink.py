@@ -40,8 +40,8 @@ try:
         print(comment)
         
         rot = 0 
-        text = PapirusTextPos()
-        text.AddText(f"{isotime}\n{source} {heard} {symbol} {level}\n", 0, 0, size-15, Id="row1" )
+        text = PapirusTextPos([size=15])
+        text.AddText(f"{isotime}\n{source} {heard} {symbol} {level}\n", 0, 0, Id="row1" )
         text.AddText(source, 0, 20, Id="row2" )
         #screen.partial_update()
 
