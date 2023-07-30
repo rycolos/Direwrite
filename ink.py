@@ -12,17 +12,11 @@ logfile = f"{logdir}/{date.today}.log"
 text = PapirusTextPos()
 text.Clear()
 
-"""
-need to initialize logfile to try to read it
-if it doesn't exist, write "Waiting for logs to populate..."
-"""
-
-
 #every 30s, read csv, update display, don't update if no change
 try:
     while True:
-     #read last line of log file, handle newlines in data
-        
+     
+     #read last line of log file, handle newlines in data   
         try:
             df = pd.read_csv(logfile).tail(1).replace(r'\n',' ', regex=True) 
             last = df[['isotime', 'source', 'heard', 'symbol', 'level', 'latitude', 'longitude', 'comment']]
@@ -37,13 +31,17 @@ try:
             )
             print(msg)
             text.AddText(msg, 0, 0, Id="decode", size=15)
-        
+    
+    #show error if no logs yet
         except:
-            text.AddText("Waiting for logs to populate", 0, 0, Id="error", size=15)
+            text.AddText("Waiting for logs to populate...", 0, 0, Id="error", size=15)
 
     #wait for refresh time
         finally:
             time.sleep(refresh)
+            text.Clear()
+
+            
     
 except KeyboardInterrupt:
     pass
