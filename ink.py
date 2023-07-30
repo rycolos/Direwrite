@@ -22,8 +22,8 @@ try:
      #read last line of log file, handle newlines in data   
         try:
             #print(f"Reading {logfile}...")
-            df = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True) 
-            last = df[['isotime', 'source', 'heard', 'symbol', 'level', 'latitude', 'longitude', 'comment']]
+            df1 = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True) 
+            last = df1[['isotime', 'source', 'heard', 'symbol', 'level', 'latitude', 'longitude', 'comment']]
             row_list = last.values.flatten().tolist()
             isotime, source, heard, symbol, level, latitude, longitude, comment = row_list
 
@@ -43,7 +43,11 @@ try:
       #wait for refresh time  
         finally:
             time.sleep(refresh)
-            text.RemoveText("decode")
+            df2 = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True)
+            if df1 == df2:
+                continue
+            else:
+                text.RemoveText("decode")
    
 except KeyboardInterrupt:
     text.Clear()
