@@ -1,6 +1,8 @@
 # Direwrite
 E-ink display for Direwolf APRS decoding on Raspberry Pi Zero
 
+Configured to show UTC timestamp, sending station, heard station, symbol, levels, lat/lon, and any comment available. 
+
 ## Requirements
 All references to `gktnc` should be replaced with your home directory. All scrips and instructions assume this repo is cloned into your home directory. 
 
