@@ -1,6 +1,6 @@
 import pandas as pd
 import time
-from papirus import Papirus
+from papirus import PapirusText
 from papirus import PapirusTextPos
 
 refresh = 15   #refresh time
