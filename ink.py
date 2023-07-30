@@ -10,7 +10,6 @@ logfile = f"{logdir}/{date.today}.log"
 
 #initialize Papirus
 text = PapirusTextPos()
-#text.Clear()
 text.AddText("Direwrite for APRS", 20, 20, Id="splash", size=20)
 time.sleep(3)
 text.RemoveText("splash")
@@ -28,11 +27,10 @@ try:
 
         #write to display
             msg = (f"{isotime}\n"
-            f"{source}, {heard}, {symbol}, {level}\n"
-            f"{latitude}, {longitude}\n"
-            f"{comment}\n"
-            )
-            print(msg)
+                f"{source}, {heard}, {symbol}, {level}\n"
+                f"{latitude}, {longitude}\n"
+                f"{comment}\n"
+                )
             text.AddText(msg, 0, 0, Id="decode", size=15)
     
     #show error if no logs yet
