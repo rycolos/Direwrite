@@ -1,7 +1,7 @@
 import pandas as pd
 import time
-#from papirus import Papirus
-#from papirus import PapirusTextPos
+from papirus import Papirus
+from papirus import PapirusTextPos
 
 refresh = 15   #refresh time
 
@@ -15,8 +15,6 @@ try:
         isotime, source, heard, symbol, level, latitude, longitude, comment = row_list
 
         #write to display
-        #screen.partial_update()
-        #text = PapirusTextPos([rotation = 0])
 
         # r1 = row_list[0]
         # r2 = row_list[1:5]
@@ -39,6 +37,11 @@ try:
         print(source, heard, symbol, level)
         print(latitude, longitude)
         print(comment)
+        
+        text = PapirusTextPos([rotation = 0])
+        text.write(isotime)
+        text.write(comment)
+        #screen.partial_update()
 
         #wait for refresh time
         time.sleep(refresh)
