@@ -4,10 +4,8 @@ E-ink display for Direwolf
 ## Requirements
 Designed for Pi Zero W and Papirus 2" E-ink display. 
 
-* DIREWOLF
-See https://k5eok.org/2021/01/19/aprs-digipeater-igate-with-direwolf-entry-level/ for a good guide
-* PAPIRUS + PYTHON 3 API
-See https://github.com/PiSupply/PaPiRus
+* Direwolf TNC - See https://k5eok.org/2021/01/19/aprs-digipeater-igate-with-direwolf-entry-level/ for a good guide
+* Papirus with Python 3 API - See https://github.com/PiSupply/PaPiRus
 
 ```
 #TMUX
