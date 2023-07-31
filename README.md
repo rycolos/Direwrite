@@ -40,3 +40,5 @@ Add the following entry, updating the script directory as needed:
 `@reboot sleep 30 && /usr/bin/tmux new-session -d -s direwolf /home/gktnc/Direwrite/direwrite.sh`
 
 Use `tmux attach -t direwolf` to view session.
+
+Note: To shutdown the Pi gracefully and preserve the SD card, you should SSH in and perform a manual `sudo shutdown -h now`
