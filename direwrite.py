@@ -12,6 +12,7 @@ logfile = f"{logdir}/{today}.log"
 
 #initialize Papirus display
 text = PapirusTextPos()
+text.Clear()
 text.AddText("Direwrite for APRS", 20, 20, Id="splash", size=20)
 time.sleep(3)
 text.RemoveText("splash")
@@ -46,4 +47,8 @@ try:
             time.sleep(refresh)
    
 except KeyboardInterrupt:
+    print("Keyboard interrupt: Closing Direwolf...")
+    text.Clear()
+except Exception as e:
+    print("Exception encountered:", e)
     text.Clear()
