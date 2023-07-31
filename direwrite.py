@@ -44,11 +44,14 @@ try:
       #wait for refresh time  
         finally:
             time.sleep(refresh)
-            df2 = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True)
-            if df1.equals(df2):
-                continue
-            else:
-                text.RemoveText("decode")
+            try: 
+                df2 = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True)
+                if df1.equals(df2):
+                    continue
+                else:
+                    text.RemoveText("decode")
+            except:
+                pass
    
 except KeyboardInterrupt:
     text.Clear()
