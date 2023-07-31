@@ -16,7 +16,7 @@ text.AddText("Direwrite for APRS", 20, 20, Id="splash", size=20)
 time.sleep(3)
 text.RemoveText("splash")
 
-text.AddText(f"Initializing...", 0, 0, Id="message", size=15)
+text.AddText(f"Initializing...\nRefresh rate {refresh} seconds.", 0, 0, Id="message", size=15)
 
 #at refresh interval, read csv, update display, don't update if no change
 try:
@@ -37,12 +37,12 @@ try:
                     f"{latitude}, {longitude}\n"
                     f"{comment}\n"
                     )
-                text.UpdateText(msg, 0, 0, Id="message", size=15)
+                text.UpdateText("message", msg)
             df_prev = df_curr
     
     #show error if no logs yet
         except:
-            text.UpdateText(f"Waiting for logs to populate...", 0, 0, Id="message", size=15)
+            text.UpdateText("message", "Waiting for logs to populate...")
       
       #wait for refresh time  
         finally:
