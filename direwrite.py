@@ -26,21 +26,23 @@ try:
         try:
             #print(f"Reading {logfile}...")
             df_curr = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True)
-            # if df_curr.equals(df_prev): #don't rewrite if not needed
-            #     continue
-            # else:
-            cols = df_curr[['isotime', 'source', 'heard', 'symbol', 'level', 'latitude', 'longitude', 'comment']]
-            row_list = cols.values.flatten().tolist()
-            isotime, source, heard, symbol, level, latitude, longitude, comment = row_list
+            if df_curr.equals(df_prev): #don't rewrite if not needed
+                print('no change needed')
+                continue
+            else:
+                print('writing new message')
+                cols = df_curr[['isotime', 'source', 'heard', 'symbol', 'level', 'latitude', 'longitude', 'comment']]
+                row_list = cols.values.flatten().tolist()
+                isotime, source, heard, symbol, level, latitude, longitude, comment = row_list
 
-        #write to display
-            msg = (f"{isotime}\n"
-                f"{source}, {heard}, {symbol}, {level}\n"
-                f"{latitude}, {longitude}\n"
-                f"{comment}\n"
-                )
-            text.UpdateText("message", msg)
-            #df_prev = df_curr
+            #write to display
+                msg = (f"{isotime}\n"
+                    f"{source}, {heard}, {symbol}, {level}\n"
+                    f"{latitude}, {longitude}\n"
+                    f"{comment}\n"
+                    )
+                text.UpdateText("message", msg)
+            df_prev = df_curr
     
     #show error if no logs yet
         except:
@@ -50,5 +52,5 @@ try:
         finally:
             time.sleep(refresh)
    
-except Exception:
+except KeyboardInterrupt:
     text.Clear()
