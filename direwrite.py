@@ -16,42 +16,37 @@ text.AddText("Direwrite for APRS", 20, 20, Id="splash", size=20)
 time.sleep(3)
 text.RemoveText("splash")
 
+text.AddText(f"Initializing...", 0, 0, Id="message", size=15)
+
 #at refresh interval, read csv, update display, don't update if no change
 try:
     while True:
      
-     #read last line of log file, handle newlines in data   
+     #read last line of log file, handle new lines in data   
         try:
             #print(f"Reading {logfile}...")
-            df1 = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True) 
-            last = df1[['isotime', 'source', 'heard', 'symbol', 'level', 'latitude', 'longitude', 'comment']]
-            row_list = last.values.flatten().tolist()
-            isotime, source, heard, symbol, level, latitude, longitude, comment = row_list
+            df_curr = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True)
+            if df_curr.equals(df_prev):
+                cols = df_curr[['isotime', 'source', 'heard', 'symbol', 'level', 'latitude', 'longitude', 'comment']]
+                row_list = cols.values.flatten().tolist()
+                isotime, source, heard, symbol, level, latitude, longitude, comment = row_list
 
-        #write to display
-            msg = (f"{isotime}\n"
-                f"{source}, {heard}, {symbol}, {level}\n"
-                f"{latitude}, {longitude}\n"
-                f"{comment}\n"
-                )
-            #print(msg)
-            text.AddText(msg, 0, 0, Id="decode", size=15)
+            #write to display
+                msg = (f"{isotime}\n"
+                    f"{source}, {heard}, {symbol}, {level}\n"
+                    f"{latitude}, {longitude}\n"
+                    f"{comment}\n"
+                    )
+                text.UpdateText(msg, 0, 0, Id="message", size=15)
+            df_prev = df_curr
     
     #show error if no logs yet
         except:
-            text.AddText(f"Waiting {logfile} to populate...", 0, 0, Id="error", size=15)
+            text.UpdateText(f"Waiting for logs to populate...", 0, 0, Id="message", size=15)
       
       #wait for refresh time  
         finally:
             time.sleep(refresh)
-            try: 
-                df2 = pd.read_csv(logfile, encoding = "ISO-8859-1").tail(1).replace(r'\n',' ', regex=True)
-                if df1.equals(df2):
-                    continue
-                else:
-                    text.RemoveText("decode")
-            except:
-                pass
    
 except KeyboardInterrupt:
     text.Clear()
